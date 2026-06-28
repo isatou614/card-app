@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(helmet());
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 app.use(cors({
   origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
   credentials: true,
