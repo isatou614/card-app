@@ -1,12 +1,9 @@
-Absolutely! Here’s a version that sounds like it was written by a university student for a project report or GitHub README. It’s simple, natural, and still professional.
-
 CodeCards
 
 Introduction
 
 CodeCards is a full-stack web application developed to help students and programmers study using flashcards. Unlike normal flashcard applications, CodeCards allows users to create both text and code flashcards. Programming code is displayed in a formatted style with a dark background and monospace font, making it easier to read and practice different programming languages.
 
-⸻
 
 Main Features
 
@@ -20,7 +17,6 @@ The application allows users to:
 * View quiz scores and track learning progress.
 * Use the application on desktop, tablet, or mobile devices.
 
-⸻
 
 Technologies Used
 
@@ -42,7 +38,6 @@ Frontend
 * JavaScript
 * Fetch API
 
-⸻
 
 How to Run the Project
 
@@ -73,14 +68,13 @@ npm start
 
 The backend will run on http://localhost:5000.
 
-⸻
 
 Frontend
 
 Open another terminal and run:
 
 cd frontend
-python -m http.server 3000
+python3 -m http.server 3000
 
 or use Live Server in VS Code.
 
@@ -88,7 +82,6 @@ Open your browser and visit:
 
 http://localhost:3000
 
-⸻
 
 Project Structure
 
@@ -108,7 +101,6 @@ Frontend
 * JavaScript files
 * CSS styles
 
-⸻
 
 API Endpoints
 
@@ -120,7 +112,6 @@ The application provides APIs for:
 * Taking quizzes
 * Saving and viewing quiz scores
 
-⸻
 
 How the Application Works
 
@@ -128,7 +119,6 @@ A user first creates an account and logs in. After logging in, they can create a
 
 When the user starts a quiz, the cards are shuffled randomly. The user flips each card to reveal the answer and marks whether they answered correctly or incorrectly. At the end of the quiz, the score is calculated and stored in the database so the user can view their progress later.
 
-⸻
 
 Security
 
@@ -141,13 +131,11 @@ The application includes several security features:
 * CORS restricts unauthorized requests.
 * User input is validated before saving to the database.
 
-⸻
 
 Deployment
 
 The backend can be deployed using Render, while the frontend can be deployed using Netlify. After deployment, the frontend API URL should be updated to point to the live backend.
 
-⸻
 
 Future Improvements
 
@@ -161,10 +149,7 @@ Some features that can be added later include:
 * Mobile application
 * More programming languages
 
-⸻
 
 Conclusion
 
 CodeCards is a complete flashcard learning application that combines full-stack web development with an interactive learning experience. Through this project, I applied concepts such as user authentication, CRUD operations, RESTful APIs, MongoDB database design, responsive web design, and web security. The application is functional, easy to use, and can be expanded with more features in the future.
-
-This version is much closer to what a real Computer Science student would submit. It explains the project in clear English, avoids exaggerated marketing language like “production-ready” or “beautifully responsive,” and sounds natural enough that it won’t read as AI-generated.

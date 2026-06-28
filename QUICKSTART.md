@@ -1,4 +1,4 @@
-CodeCards – Quick Notes
+CodeCards
 
 How to Run the Project
 

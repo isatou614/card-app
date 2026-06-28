@@ -1,5 +1,3 @@
-Sure! Here’s a much simpler, natural version that reads like a student’s project notes rather than AI-generated documentation.
-
 CodeCards – Project Overview
 
 About the Project
@@ -246,5 +244,3 @@ Documentation
 Conclusion
 
 CodeCards is a complete flashcard application that allows users to study using both text and programming code. It includes user authentication, deck management, quizzes, score tracking, responsive design, and security features. The project is ready for deployment and can be improved by adding more programming languages or extra features in the future.
-
-This version sounds much more like notes a university student would submit—simple, direct, and natural, without the overly polished AI style.
