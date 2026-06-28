@@ -52,16 +52,12 @@ Works beautifully on desktop, tablet, and mobile devices.
 - MongoDB (local or Atlas)
 - Git
 
-### 1. Clone & Setup Backend
-
-```bash
 cd backend
 npm install
 ```
 
 Create a `.env` file:
 
-```
 NODE_ENV=development
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/codecards
