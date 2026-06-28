@@ -13,7 +13,6 @@ The project was completed in four phases:
 * Phase 3 – Quiz system and score tracking
 * Phase 4 – Security improvements and deployment preparation
 
-⸻
 
 Backend
 
@@ -49,7 +48,6 @@ Security
 * CORS configuration
 * Error handling middleware
 
-⸻
 
 Frontend
 
@@ -77,7 +75,6 @@ CSS
 * Dark theme for code cards
 * Mobile-friendly layout
 
-⸻
 
 Main Feature
 
@@ -90,7 +87,6 @@ Users can create:
 
 For code cards, users choose a programming language, and the code is displayed using a dark theme with syntax-style formatting, making it look similar to an IDE.
 
-⸻
 
 Database Collections
 
@@ -134,7 +130,6 @@ Stores:
 * Correct answers
 * Time taken
 
-⸻
 
 How the System Works
 
