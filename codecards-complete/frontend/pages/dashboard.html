@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CodeCards</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      padding: 2rem 0;
+    }
+    .header h1 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    main {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+    .dashboard-header h2 {
+      color: #1f2937;
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    #createDeckBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      border-radius: 8px;
+      color: white;
+    }
+    #createDeckBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+    #emptyState {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    }
+    #emptyState h3 {
+      color: #1f2937;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    #emptyState p {
+      color: #6b7280;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    #createFirstDeckBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      cursor: pointer;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+    }
+    #decksList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .deck-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .deck-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      border-color: #667eea;
+    }
+    .deck-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0 0 0.5rem 0;
+    }
+    .deck-description {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .deck-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .deck-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .deck-actions button {
+      flex: 1;
+      padding: 0.65rem 1rem;
+      font-size: 0.875rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-primary-action {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .btn-primary-action:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    .btn-secondary-action {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+    }
+    .btn-secondary-action:hover {
+      background: #e5e7eb;
+    }
+    .btn-danger-action {
+      background: #fee2e2;
+      color: #7f1d1d;
+      border: 1px solid #fca5a5;
+    }
+    .btn-danger-action:hover {
+      background: #fecaca;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .form-group input,
+    .form-group textarea {
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    #createDeckForm button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      font-weight: 600;
+      padding: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    #createDeckForm button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+    @media (max-width: 768px) {
+      #decksList {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="nav-left">
+          <h1>🎯 CodeCards</h1>
+        </div>
+        <div class="nav-right">
+          <span id="userGreeting" style="color: white; margin-right: 1rem; font-weight: 500;"></span>
+          <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="dashboard-header">
+      <h2>Your Decks</h2>
+      <button id="createDeckBtn">+ New Deck</button>
+    </div>
+
+    <div id="alertContainer"></div>
+    <div id="decksList" class="grid grid-2"></div>
+
+    <div id="emptyState" style="display: none;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">📚</div>
+      <h3>No decks yet</h3>
+      <p>Create your first deck to get started learning code syntax!</p>
+      <button id="createFirstDeckBtn">Create Your First Deck</button>
+    </div>
+  </main>
+
+  <!-- Create Deck Modal -->
+  <div id="createDeckModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Deck</h3>
+        <button class="modal-close" onclick="closeModal('createDeckModal')">&times;</button>
+      </div>
+      <form id="createDeckForm">
+        <div class="form-group">
+          <label for="deckTitle">Deck Title *</label>
+          <input type="text" id="deckTitle" placeholder="e.g., JavaScript Fundamentals" required>
+        </div>
+        <div class="form-group">
+          <label for="deckDescription">Description (optional)</label>
+          <textarea id="deckDescription" placeholder="Describe what this deck covers..."></textarea>
+        </div>
+        <button type="submit">Create Deck</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

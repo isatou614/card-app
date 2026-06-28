@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CodeCards</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="nav-left">
+          <h1>🎯 CodeCards</h1>
+        </div>
+        <div class="nav-right">
+          <span id="userGreeting" style="color: white; margin-right: 1rem;"></span>
+          <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2>Your Decks</h2>
+      <button class="btn btn-primary" id="createDeckBtn">+ New Deck</button>
+    </div>
+
+    <div id="alertContainer"></div>
+
+    <div id="decksList" class="grid grid-2"></div>
+
+    <div id="emptyState" style="text-align: center; padding: 3rem; display: none;">
+      <h3>No decks yet</h3>
+      <p style="color: var(--gray-600); margin-bottom: 1.5rem;">Create your first deck to get started learning code syntax.</p>
+      <button class="btn btn-primary" id="createFirstDeckBtn">Create Your First Deck</button>
+    </div>
+  </main>
+
+  <!-- Create Deck Modal -->
+  <div id="createDeckModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Deck</h3>
+        <button class="modal-close" onclick="closeModal('createDeckModal')">&times;</button>
+      </div>
+      <form id="createDeckForm">
+        <div class="form-group">
+          <label for="deckTitle">Deck Title</label>
+          <input type="text" id="deckTitle" placeholder="e.g., JavaScript Fundamentals" required>
+        </div>
+        <div class="form-group">
+          <label for="deckDescription">Description (optional)</label>
+          <textarea id="deckDescription" placeholder="Describe what this deck covers..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Create Deck</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCards - Code-Focused Flashcards</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="nav-left">
+          <h1>🎯 CodeCards</h1>
+        </div>
+        <div class="nav-right" id="navRight">
+          <a href="#" class="nav-link" id="loginLink">Login</a>
+          <a href="#" class="nav-link" id="registerLink">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div style="max-width: 800px; margin: 4rem auto; text-align: center;">
+      <h2>Learn Code with Flashcards</h2>
+      <p style="font-size: 1.125rem; color: var(--gray-600); margin-bottom: 2rem;">
+        CodeCards renders your flashcards as formatted code blocks with syntax highlighting. Perfect for learning programming syntax, algorithms, and more.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary" id="getStartedBtn">Get Started</button>
+        <button class="btn btn-secondary" id="learnMoreBtn">Learn More</button>
+      </div>
+
+      <div style="margin-top: 4rem;">
+        <h3>Features</h3>
+        <div class="grid grid-3">
+          <div class="card">
+            <h4>💻 Code Syntax</h4>
+            <p>Create flashcards with formatted code blocks and syntax highlighting for every language.</p>
+          </div>
+          <div class="card">
+            <h4>🎯 Smart Quizzes</h4>
+            <p>Test your knowledge with interactive quizzes and track your progress over time.</p>
+          </div>
+          <div class="card">
+            <h4>📊 Score History</h4>
+            <p>See your improvement with detailed score tracking and performance statistics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Login</h3>
+        <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+      </form>
+      <p style="text-align: center; margin-top: 1rem;">
+        Don't have an account? <a href="#" onclick="switchModal('loginModal', 'registerModal'); return false;">Register</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Register</h3>
+        <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+      </div>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="regUsername">Username</label>
+          <input type="text" id="regUsername" required>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+      </form>
+      <p style="text-align: center; margin-top: 1rem;">
+        Already have an account? <a href="#" onclick="switchModal('registerModal', 'loginModal'); return false;">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

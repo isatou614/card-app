@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck - CodeCards</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="nav-left">
+          <h1>🎯 CodeCards</h1>
+        </div>
+        <div class="nav-right">
+          <button class="btn btn-secondary btn-sm" onclick="window.location.href='dashboard.html'">Back to Decks</button>
+          <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <div>
+        <h2 id="deckTitle"></h2>
+        <p id="deckDescription" style="color: var(--gray-600);"></p>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary" id="startQuizBtn">Start Quiz</button>
+        <button class="btn btn-secondary" id="addCardBtn">+ Add Card</button>
+      </div>
+    </div>
+
+    <div id="alertContainer"></div>
+
+    <div id="cardsList" class="grid grid-2"></div>
+
+    <div id="emptyState" style="text-align: center; padding: 3rem; display: none;">
+      <h3>No cards yet</h3>
+      <p style="color: var(--gray-600); margin-bottom: 1.5rem;">Add your first card to start learning.</p>
+      <button class="btn btn-primary" id="createFirstCardBtn">Add Your First Card</button>
+    </div>
+  </main>
+
+  <!-- Add/Edit Card Modal -->
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="cardModalTitle">Add Card</h3>
+        <button class="modal-close" onclick="closeModal('cardModal')">&times;</button>
+      </div>
+      <form id="cardForm">
+        <div class="form-group">
+          <label for="cardType">Card Type</label>
+          <select id="cardType" onchange="updateCardTypeFields()">
+            <option value="text">Text</option>
+            <option value="code">Code</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="languageGroup" style="display: none;">
+          <label for="cardLanguage">Programming Language</label>
+          <select id="cardLanguage">
+            <option value="">Select language...</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="typescript">TypeScript</option>
+            <option value="sql">SQL</option>
+            <option value="golang">Go</option>
+            <option value="rust">Rust</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cardFront">Front (Question)</label>
+          <textarea id="cardFront" placeholder="What will appear on the front?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="cardBack">Back (Answer)</label>
+          <textarea id="cardBack" placeholder="What will appear on the back?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="cardDifficulty">Difficulty</label>
+          <select id="cardDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitCardBtn">Add Card</button>
+      </form>
+    </div>
+  </div>
+  <script src="../js/auth.js"></script>
+  <script src="../js/deck.js"></script>
+</body>
+</html>
